@@ -3,7 +3,13 @@
 </template>
 
 <script>
-export default {
 
+export default {
 }
 </script>
+
+<style>
+  body {
+    background: lightgray!important;
+  }
+</style>
