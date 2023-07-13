@@ -6,7 +6,6 @@
                     <div class="card-body">
                         <h4>EDIT POST</h4>
                         <hr>
-
                         <form @submit.prevent="update">
                             <div class="form-group">
                                 <label for="title" class="font-weight-bold">TITLE</label>
@@ -24,9 +23,11 @@
                                     {{ validation.content[0] }}
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">SIMPAN</button>
-                        </form>                        
-
+                            <div class="mt-2">
+                                <button type="submit" class="mx-2 btn btn-primary">SIMPAN</button>
+                                <button class="btn btn-danger" @click="$router.go(-1)">Back</button>
+                            </div>
+                         </form>                        
                     </div>
                 </div>
             </div>
@@ -63,22 +64,22 @@ export default {
 
             //get API from Laravel Backend
             axios.get(`http://localhost:8000/api/post/${route.params.id}`)
-            .then(response => {
-              
-              //assign state posts with response data
-              post.title    = response.data.data.title  
-              post.content  = response.data.data.content  
+                .then(response => {
 
-            }).catch(error => {
-                console.log(error.response.data)
-            })
+                    //assign state posts with response data
+                    post.title = response.data.data.title
+                    post.content = response.data.data.content
+
+                }).catch(error => {
+                    console.log(error.response.data)
+                })
 
         })
 
         //method update
         function update() {
 
-            let title   = post.title
+            let title = post.title
             let content = post.content
 
             axios.put(`http://localhost:8000/api/post/${route.params.id}`, {
@@ -112,7 +113,7 @@ export default {
 </script>
 
 <style>
-    body{
-        background: lightgray;
-    }
+body {
+    background: lightgray;
+}
 </style>

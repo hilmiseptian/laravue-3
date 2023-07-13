@@ -24,7 +24,10 @@
                                     {{ validation.content[0] }}
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">SIMPAN</button>
+                            <div class="mt-2">
+                                <button type="submit" class="mx-2 btn btn-primary">SIMPAN</button>
+                                <button class="btn btn-danger" @click="$router.go(-1)">Back</button>
+                            </div> 
                         </form>                        
 
                     </div>
@@ -58,7 +61,7 @@ export default {
         //method store
         function store() {
 
-            let title   = post.title
+            let title = post.title
             let content = post.content
 
             axios.post('http://localhost:8000/api/post', {
@@ -92,7 +95,7 @@ export default {
 </script>
 
 <style>
-    body{
-        background: lightgray;
-    }
+body {
+    background: lightgray;
+}
 </style>
