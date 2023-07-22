@@ -14,11 +14,11 @@ trait Blameable
     public static function bootBlameable()
     {
         static::creating(function ($model) {
-            $model->createdBy = Auth::user()->name;
+            $model->created_by = Auth::user()->name;
         });
 
         static::updating(function ($model) {
-            $model->editedBy = Auth::user()->name;
+            $model->edited_by = Auth::user()->name;
         });
     }
 }
