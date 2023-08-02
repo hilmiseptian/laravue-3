@@ -26,7 +26,15 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('/category', CategoryController::class);
     Route::resource('/post', PostController::class);
     Route::resource('/sub-category', SubCategoryController::class);
-    // Other authenticated routes
+    Route::get('/provinces', [RajaOngkirController::class, 'getProvinces']);
+    Route::get('/cities/{id}', [RajaOngkirController::class, 'getCities']);
+    Route::post('/checkOngkir', [RajaOngkirController::class, 'checkOngkir']);
+    Route::get('/store', [StoreController::class, 'index']);
+    Route::post('/store', [StoreController::class, 'create']);
+    Route::get('/store/{id}', [StoreController::class, 'show']);
+    Route::delete('/store/{id}', [StoreController::class, 'delete']);
+    Route::get('/province', [StoreController::class, 'getProvince']);
+    Route::get('/city/{province_id}', [StoreController::class, 'getCity']);
 });
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);

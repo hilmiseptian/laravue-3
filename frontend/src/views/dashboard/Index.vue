@@ -29,6 +29,7 @@
                             <li @click="selectMenu('product.index')" class="list-group-item text-dark text-decoration-none" style="cursor:pointer">Product</li>
                             <li @click="selectMenu('category.index')" class="list-group-item text-dark text-decoration-none" style="cursor:pointer">Category</li>
                             <li @click="selectMenu('sub-category.index')" class="list-group-item text-dark text-decoration-none" style="cursor:pointer">Sub Category</li>
+                            <li @click="selectMenu('store.index')" class="list-group-item text-dark text-decoration-none" style="cursor:pointer">Store</li>
                             <li @click.prevent="logout" class="list-group-item text-dark text-decoration-none" style="cursor:pointer">LOGOUT</li>
                         </ul>
                     </div>
